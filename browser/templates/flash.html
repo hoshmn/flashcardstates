@@ -1,0 +1,8 @@
+<!-- we want to show the user something while the page loads -->
+<loader ng-show="cardsLoading"></loader>
+<div ng-hide="cardsLoading">
+    <button ng-click="getAllCards()" ng-class="{ active: currentCategory === 'All' }" class="category-button"> All </button>
+    <button ng-click="getCategoryCards(category)" ng-class="{ active: currentCategory === category }" ng-repeat="category in categories" class="category-button"> {{ category }} </button>
+    <!-- the flashCard directive we made. Note that the variable sent in as 'card' needs to have the same name as the variable create for each key in the flashCards object (i.e. flashCard ==> flashCard) -->
+    <flash-card card="flashCard" ng-repeat="flashCard in flashCards | orderBy:'question'"></flash-card>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flash Cards</title>
+    <!-- We've provided some styles for you, aren't we nice? -->
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script src="/angular/angular.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js" defer></script>
+    <script src="/js/controllers/main.controller.js"></script>
+    <script src="/js/controllers/manage.controller.js"></script>
+    <script src="/js/controllers/stats.controller.js"></script>
+    <script src="/js/controllers/newcard.controller.js"></script>
+    <script src="/js/factories/flashcard.factory.js"></script>
+    <script src="/js/factories/score.factory.js"></script>
+    <script src="js/directives/loader/loader.js"></script>
+    <script src="js/directives/flash-card/flash-card.js"></script>
+    <script src="js/directives/border-on-hover.js"></script>
+    <script src="js/directives/error.js"></script>
+    <script src="js/filters/cheat.filter.js"></script>
+    <script src="js/states/flash.js"></script>
+    <script src="js/states/newCard.js"></script>
+    <script src="js/states/manageCard.js"></script>
+    <script src="js/states/statistics.js"></script>
+
+</head>
+
+<nav>
+    <button ui-sref="statistics">STATS</button>
+    <button ui-sref="newCard">CREATE CARD</button>
+    <button ui-sref="flash">FLASH ME!</button>
+</nav>
+
+<body ng-app="flashCards" ng-controller="MainController">
+    <!-- the stats are now in a separate file that we can ng-include -->
+    <!-- <div ng-include="'templates/stats.html'"></div> -->
+    <div ng-controller="NewCardController">
+        <loader ng-show="submitting"></loader>
+        <!-- submit new cardn -->
+        <br/>
+    </div>
+    
+    <ui-view></ui-view>
+
+</body>
+
+</html>
